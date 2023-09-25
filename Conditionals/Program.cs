@@ -51,11 +51,7 @@ namespace Conditionals
         static void ShowHUD()
         {
             Console.WriteLine("health: " + health);
-            if (health <=0)
-            {
-                lives --;
-                health = 100;
-            }
+            
             Console.WriteLine("lives: " + lives);
         }
         static void TakeDamage(int damage)
@@ -63,6 +59,11 @@ namespace Conditionals
             Console.Write("Player about to take " + damage + " damage... \n");
             Console.ReadKey(true);
             health -= damage;
+            if (health <= 0)
+            {
+                lives--;
+                health = 100;
+            }
         }
     }
 }
